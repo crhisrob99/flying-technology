@@ -1,0 +1,12 @@
+# Videos fuente: no se publican, la web usa los frames ya generados
+*.mp4
+*.mov
+
+# Material del curso: no forma parte del sitio
+*.docx
+INSTRUCCIONES-IA.md
+GUIA-n8n-Automatizacion.md
+LEEME-FRAMES.md
+
+# Script de generacion de frames (herramienta local)
+build-frames.ps1
