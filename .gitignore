@@ -2,11 +2,12 @@
 *.mp4
 *.mov
 
-# Material del curso: no forma parte del sitio
+# Material del curso y documentacion interna: no forma parte del sitio
 *.docx
 INSTRUCCIONES-IA.md
 GUIA-n8n-Automatizacion.md
 LEEME-FRAMES.md
+BITACORA-Flying-technology.md
 
 # Script de generacion de frames (herramienta local)
 build-frames.ps1
