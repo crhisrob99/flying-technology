@@ -1262,20 +1262,25 @@ alScroll();
   </div>
 
   <!-- Botón Lanzador Flotante (Blanco con azul suave) -->
-  <button id="bot-launcher" aria-label="Abrir asistente virtual" title="Hablar con Cris+">
-    <div class="bot-launcher-inner">
-      <svg class="bot-icon-chat" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        <circle cx="9" cy="10" r="1" fill="#0284c7"/>
-        <circle cx="12" cy="10" r="1" fill="#0284c7"/>
-        <circle cx="15" cy="10" r="1" fill="#0284c7"/>
-      </svg>
-      <svg class="bot-icon-close bot-hidden" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 6 6 18M6 6l12 12"/>
-      </svg>
+  <div class="bot-launcher-wrap">
+    <div class="bot-launcher-badge" id="bot-badge">
+      <span>¿Dudas? Chatea con IA</span>
     </div>
-    <span class="bot-pulse"></span>
-  </button>
+    <button id="bot-launcher" aria-label="Abrir asistente virtual" title="Hablar con Cris+">
+      <div class="bot-launcher-inner">
+        <svg class="bot-icon-chat" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <circle cx="9" cy="10" r="1" fill="#0284c7"/>
+          <circle cx="12" cy="10" r="1" fill="#0284c7"/>
+          <circle cx="15" cy="10" r="1" fill="#0284c7"/>
+        </svg>
+        <svg class="bot-icon-close bot-hidden" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </div>
+      <span class="bot-pulse"></span>
+    </button>
+  </div>
 </div>
 
 <style>
@@ -1290,45 +1295,76 @@ alScroll();
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
+  .bot-launcher-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .bot-launcher-badge {
+    background: #ffffff;
+    color: #0369a1;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(56, 189, 248, 0.4);
+    pointer-events: none;
+    animation: botFloat 3s ease-in-out infinite;
+    white-space: nowrap;
+  }
+  @keyframes botFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
   /* Botón Lanzador */
   #bot-launcher {
     position: relative;
-    width: 60px;
-    height: 60px;
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
-    background: #ffffff;
-    border: 2px solid rgba(56, 189, 248, 0.45);
-    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.28), 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: #ffffff !important;
+    border: 2.5px solid #38bdf8 !important;
+    box-shadow: 0 10px 28px rgba(2, 132, 199, 0.35), 0 2px 8px rgba(0, 0, 0, 0.12);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     outline: none;
+    flex-shrink: 0;
   }
   #bot-launcher:hover {
     transform: scale(1.08) translateY(-3px);
-    background: #f0f9ff;
-    border-color: #38bdf8;
-    box-shadow: 0 12px 32px rgba(2, 132, 199, 0.38), 0 4px 12px rgba(0, 0, 0, 0.12);
+    background: #f0f9ff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 14px 36px rgba(2, 132, 199, 0.45), 0 4px 14px rgba(0, 0, 0, 0.15);
+  }
+  .bot-launcher-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
   }
   #bot-launcher svg {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     transition: transform 0.25s ease;
   }
   .bot-pulse {
     position: absolute;
-    inset: -3px;
+    inset: -4px;
     border-radius: 50%;
-    border: 2px solid rgba(56, 189, 248, 0.6);
+    border: 2px solid rgba(56, 189, 248, 0.7);
     animation: botPulso 2.4s infinite;
     pointer-events: none;
   }
   @keyframes botPulso {
-    0% { transform: scale(1); opacity: 0.9; }
-    50% { transform: scale(1.18); opacity: 0; }
-    100% { transform: scale(1.18); opacity: 0; }
+    0% { transform: scale(1); opacity: 0.95; }
+    50% { transform: scale(1.22); opacity: 0; }
+    100% { transform: scale(1.22); opacity: 0; }
   }
 
   /* Ventana de Chat */
@@ -1539,6 +1575,7 @@ alScroll();
     const typing = document.getElementById('bot-typing');
     const iconChat = launcher.querySelector('.bot-icon-chat');
     const iconClose = launcher.querySelector('.bot-icon-close');
+    const badge = document.getElementById('bot-badge');
 
     // ID de sesión persistente para memoria conversacional en Postgres
     let sessionId = localStorage.getItem('cris_bot_session');
@@ -1553,6 +1590,7 @@ alScroll();
         windowEl.classList.remove('bot-hidden');
         iconChat.classList.add('bot-hidden');
         iconClose.classList.remove('bot-hidden');
+        if (badge) badge.style.display = 'none';
         setTimeout(() => input.focus(), 150);
       } else {
         windowEl.classList.add('bot-hidden');
