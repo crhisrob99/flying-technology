@@ -888,11 +888,11 @@ footer{
    CONTRATO CON N8N — no cambiar los nombres de los campos
    ============================================================ */
 // PRODUCCION (la que debe quedar en la pagina publicada).
-const WEBHOOK_URL = "https://n8n-production-9083.up.railway.app/webhook/f5fe75c3-3342-46b2-bc52-5206be0798a3";
+const WEBHOOK_URL = "https://crhis-n8n.140.84.184.227.sslip.io/webhook/registro-web";
 
 // PRUEBAS: solo funciona unos minutos despues de pulsar "Execute workflow" en n8n.
 // Para depurar, comenta la linea de arriba y descomenta esta:
-// const WEBHOOK_URL = "https://n8n-production-9083.up.railway.app/webhook-test/f5fe75c3-3342-46b2-bc52-5206be0798a3";
+// const WEBHOOK_URL = "https://crhis-n8n.140.84.184.227.sslip.io/webhook-test/registro-web";
 
 const ORIGEN = "Flying technology";
 
@@ -1203,6 +1203,93 @@ document.getElementById('anio').textContent = new Date().getFullYear();
 medir();
 arrancar();
 alScroll();
+</script>
+
+<!-- ===== WIDGET BOT AGENTE IA (n8n) ===== -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<style>
+  :root {
+    --chat--color-primary: #0284c7;
+    --chat--color-primary-shade-50: #0369a1;
+    --chat--color-primary-shade-100: #075985;
+    --chat--color-secondary: #0f172a;
+    --chat--color-white: #ffffff;
+    --chat--color-light: #f8fafc;
+    --chat--color-light-shade-50: #f1f5f9;
+    --chat--color-light-shade-100: #e2e8f0;
+    --chat--color-medium: #64748b;
+    --chat--color-dark: #0f172a;
+    --chat--window--width: 380px;
+    --chat--window--height: 560px;
+    --chat--window--bottom: 24px;
+    --chat--window--right: 24px;
+    --chat--window--z-index: 99999;
+    --chat--window--border-radius: 20px;
+    --chat--toggle--background: #ffffff;
+    --chat--toggle--hover--background: #f0f9ff;
+    --chat--toggle--active--background: #e0f2fe;
+    --chat--toggle--color: #0284c7;
+    --chat--toggle--size: 60px;
+    --chat--header--background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    --chat--header--color: #0f172a;
+  }
+
+  /* Botón flotante blanco con tonos ligeros de azul y relieve suave */
+  .chat-window-wrapper .chat-window-toggle {
+    background: #ffffff !important;
+    color: #0284c7 !important;
+    border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.22), 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  .chat-window-wrapper .chat-window-toggle:hover {
+    background: #f0f9ff !important;
+    transform: scale(1.08) translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.32), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    border-color: #38bdf8 !important;
+  }
+  .chat-window-wrapper .chat-window-toggle svg {
+    fill: #0284c7 !important;
+    stroke: #0284c7 !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* Estilos de la ventana de chat */
+  .chat-window-wrapper .chat-window {
+    border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 20px rgba(2, 132, 199, 0.15) !important;
+  }
+  .chat-window-wrapper .chat-header h1 {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+  }
+  .chat-window-wrapper .chat-header p {
+    color: #0284c7 !important;
+    font-weight: 500 !important;
+  }
+</style>
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://crhis-n8n.140.84.184.227.sslip.io/webhook/c1b40fdf-95f5-4f14-baf2-a9fb75ec0141/chat',
+    mode: 'window',
+    showWelcomeScreen: true,
+    defaultLanguage: 'es',
+    initialMessages: [
+      '¡Hola! 👋 Soy Cris+, asistente virtual de IA. ¿En qué te puedo ayudar hoy?'
+    ],
+    i18n: {
+      es: {
+        title: 'Cris+ Asistente Virtual',
+        subtitle: 'En línea 24/7 · Soporte e IA',
+        footer: '',
+        getStarted: 'Nueva conversación',
+        inputPlaceholder: 'Escribe tu pregunta aquí...',
+      }
+    }
+  });
 </script>
 </body>
 </html>

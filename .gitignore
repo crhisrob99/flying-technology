@@ -11,3 +11,6 @@ BITACORA-Flying-technology.md
 
 # Script de generacion de frames (herramienta local)
 build-frames.ps1
+
+# Configuracion y documentacion del servidor Oracle (infraestructura privada)
+servidor-oracle/
